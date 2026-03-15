@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 # CONFIG
 # -----------------------------
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 # -----------------------------
 # LOAD DATA
