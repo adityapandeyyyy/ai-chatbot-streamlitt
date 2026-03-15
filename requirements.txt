@@ -1,7 +1,6 @@
 streamlit
 pandas
 openpyxl
-google-generativeai
+google-genai
 faiss-cpu
 sentence-transformers
-google-genai
