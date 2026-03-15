@@ -23,7 +23,11 @@ def load_data():
 df = load_data()
 
 # Convert rows to text for retrieval
-documents = df.astype(str).apply(lambda row: " ".join(row), axis=1).tolist()
+documents = df.astype(str).apply(
+    lambda row: " | ".join([f"{col}: {row[col]}" for col in df.columns]),
+    axis=1
+).tolist()
+
 
 # -----------------------------
 # 3. CREATE VECTOR STORE (FAISS)
