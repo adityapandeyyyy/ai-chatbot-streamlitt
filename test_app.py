@@ -2,8 +2,8 @@ import streamlit as st
 import pandas as pd
 import google.generativeai as genai
 
-file_path = r"C:\Users\aditya.pandey4\Downloads\ManpowerPython_BI.xlsx"
-
+# Load Excel file
+file_path = "ManpowerPython_BI.xlsx"
 df = pd.read_excel(file_path)
 
 documents = []
@@ -11,31 +11,29 @@ documents = []
 for _, row in df.iterrows():
     documents.append(str(row.to_dict()))
 
+# Load API key from Streamlit Secrets
+genai.configure(api_key = st.secrets["GEMINI_API_KEY"])
 
-genai.configure(api_key = "AIzaSyAuo-SZs8jYVsFUuTkz0cpd6qNSIOU3wYY")
-model = genai.GenerativeModel("gemini-3-flash-preview")
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 st.title("AI Assistant")
 
 query = st.text_input("Ask AI")
 
 if query:
-    context  = "\n".join(documents)
+    context = "\n".join(documents)
 
     prompt = f"""
-    You are an AI assistant, please do not halluciante the question
-    Answer only from the below excel data for context:
+    You are an AI assistant, please do not hallucinate.
+    Answer ONLY from the Excel data provided below.
+
+    Context:
     {context}
 
-    question: {query}
-"""
-    response = model.generate_content(prompt)
+    Question: {query}
+    """
 
+    response = model.generate_content(prompt)
 
     st.write("Answer")
     st.write(response.text)
-
-
-
-
-
