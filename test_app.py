@@ -9,7 +9,7 @@ from sentence_transformers import SentenceTransformer
 # -----------------------------
 # The new SDK automatically picks up keys, but we pass it explicitly for Streamlit
 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-MODEL_ID = "gemini-2.5-latest"  # Latest stable model for 2026
+MODEL_ID = "gemini-flash-latest"  # Latest stable model for 2026
 
 # -----------------------------
 # 2. LOAD DATA
