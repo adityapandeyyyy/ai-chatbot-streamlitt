@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer
 # CONFIG
 # -----------------------------
 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-MODEL_ID = "gemini-2.0-flash"
+MODEL_ID = "gemini-flash-latest"
 
 # -----------------------------
 # LOAD DATA
