@@ -57,7 +57,7 @@ def retrieve_context(query):
 
     faiss.normalize_L2(query_embedding)
 
-    k = 15
+    k = 30
 
     distances, indices = index.search(query_embedding, k)
 
